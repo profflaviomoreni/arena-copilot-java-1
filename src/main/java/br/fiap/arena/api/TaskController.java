@@ -50,10 +50,10 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<Page<Task>> list(
-            @RequestParam(name = "status", required = false) TaskStatus status,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id,desc") String[] sort) {
+        @RequestParam(name = "status", required = false) TaskStatus status,
+        @RequestParam(name = "page", defaultValue = "0") int page,
+        @RequestParam(name = "size", defaultValue = "10") int size,
+        @RequestParam(name = "sort", defaultValue = "id,desc") String[] sort) {
         
         List<Sort.Order> orders = Arrays.stream(sort)
             .map(s -> {
